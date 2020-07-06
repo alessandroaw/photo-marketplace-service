@@ -1,7 +1,15 @@
+// Module
 const express = require('express');
+const mongoose = require('./db/mongoose');
 
+// Config
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
+
+// Router
+const photoRouter = require('./routers/photo');
+
+app.use('/photo', photoRouter);
 
 app.get('/', (req, res) => {
     res.send('<h1>HELLO</h1>')
