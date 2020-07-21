@@ -1,6 +1,7 @@
 const Photo = require('../models/photo');
 
 async function post(req, res, next) {
+	// res.header.access
 	console.log(req.body);
 	const photo = new Photo ({ ...req.body });
 	try {
