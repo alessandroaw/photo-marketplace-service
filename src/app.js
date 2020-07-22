@@ -1,23 +1,28 @@
 // Module
 const express = require('express');
 const mongoose = require('./db/mongoose');
+const logger = require('./middlewares/simple-logger');
 
 // Config
 const app = express();
 const port = process.env.PORT;
 
 // Router
-const photoRouter = require('./routes/photo');
+const apiRouter = require('./routes/');
 
 // routes
 app.use(express.json());
+
+// CORS FIX
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "http://localhost:8080");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
-app.use('/photo', photoRouter);
+app.use(logger);
+
+app.use('/api', apiRouter);
 
 app.get('/', (req, res) => {
     res.send('<h1>HELLO</h1>')

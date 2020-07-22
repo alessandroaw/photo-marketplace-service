@@ -1,12 +1,12 @@
 const Photo = require('../models/photo');
 
 async function post(req, res, next) {
-	// res.header.access
 	console.log(req.body);
-	const photo = new Photo ({ ...req.body });
+	const photo = new Photo({ ...req.body });
 	try {
         await photo.save();
-        res.status(201).send(photo);
+		res.status(201).send(photo);
+		console.log('success');
     } catch(e) {
 		console.log(e);
         res.status(400).send(e);
@@ -14,7 +14,14 @@ async function post(req, res, next) {
 }
 
 async function getAllPhotos(req, res, next) {
-	res.send('OK');
+	try {
+		// const photo = 'phtoto';
+		const photos = await Photo.find({});
+		res.status(200).send(photos);
+	} catch (e) {
+		console.error(e);
+		res.status(404).send(e);
+	}
 }
 
 async function patch(req, res, next) {
