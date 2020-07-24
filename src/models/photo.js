@@ -10,6 +10,11 @@ const photoSchema = new mongoose.Schema({
 	imageHash: {
 		type: String,
 	},
+	photoManager: {
+		type: String,
+		required: true,
+		trim: true,
+	},
 	description: {
 		type: String,
 		required: true,
