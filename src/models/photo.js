@@ -7,6 +7,10 @@ const photoSchema = new mongoose.Schema({
 		required: true,
 		trim: true,
 	},
+	imagePath: {
+		type: String,
+		required: true,
+	},
 	imageHash: {
 		type: String,
 	},

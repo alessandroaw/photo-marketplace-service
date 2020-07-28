@@ -1,8 +1,9 @@
 const Photo = require('../models/photo');
 
 async function post(req, res, next) {
+	console.log(req.file);
 	console.log(req.body);
-	const photo = new Photo({ ...req.body });
+	const photo = new Photo({ ...req.body, imagePath: req.file.path });
 	try {
         await photo.save();
 		res.status(201).send(photo);
@@ -20,7 +21,7 @@ async function getAllPhotos(req, res, next) {
 		res.status(200).send(photos);
 	} catch (e) {
 		console.error(e);
-		res.status(404).send(e);
+		res.status(400).send(e);
 	}
 }
 
