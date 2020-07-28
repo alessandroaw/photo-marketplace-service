@@ -2,6 +2,7 @@ const Photo = require('../models/photo');
 
 async function post(req, res, next) {
 	console.log(req.file);
+	req.body.tags = req.body.tags.split(',');
 	console.log(req.body);
 	const photo = new Photo({ ...req.body, imagePath: `uploads/${req.file.filename}` });
 	try {
