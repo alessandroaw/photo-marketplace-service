@@ -3,7 +3,7 @@ const Photo = require('../models/photo');
 async function post(req, res, next) {
 	console.log(req.file);
 	console.log(req.body);
-	const photo = new Photo({ ...req.body, imagePath: req.file.path });
+	const photo = new Photo({ ...req.body, imagePath: req.file.filename });
 	try {
         await photo.save();
 		res.status(201).send(photo);
