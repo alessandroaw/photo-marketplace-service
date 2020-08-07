@@ -38,7 +38,7 @@ photoSchema.pre('save', async function (next) {
 	const photo = this;
 	
 	if(photo.isModified('image')) {
-	  photo.imageHash = Web3.utils.keccak256(photo.image);
+	  photo.imageHash = Web3.utils.keccak256(`${new Date().toISOString()}-${photo.image}`);
 	}
   
 	next();
