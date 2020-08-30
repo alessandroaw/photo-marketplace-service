@@ -1,14 +1,11 @@
 const Photo = require('../models/photo');
 
 async function post(req, res, next) {
-	console.log(req.file);
 	req.body.tags = req.body.tags.split(',');
-	console.log(req.body);
 	const photo = new Photo({ ...req.body, imagePath: `uploads/${req.file.filename}` });
 	try {
         await photo.save();
 		res.status(201).send(photo);
-		console.log('success');
     } catch(e) {
 		console.log(e);
         res.status(400).send(e);
@@ -28,7 +25,6 @@ async function getAllPhotos(req, res, next) {
 
 async function patch(req, res, next) {
 	res.send(req.params.imageHash);
-	console.log(req);
 }
 
 module.exports = {

@@ -1,0 +1,8 @@
+===Account Manager: addPhotographer===
+Memeriksa apakah fotografer telah terdaftar
+Fotografer belum terdaftar
+Menambahkan Fotografer
+Menciptakan kontrak PhotoManager
+===Photo Manager: orderLicense===
+Membuat pesanan foto baru
+Menciptakan kontrak LicensePayment

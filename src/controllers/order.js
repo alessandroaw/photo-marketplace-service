@@ -11,14 +11,12 @@ async function get(req, res, next) {
 }
 
 async function post(req, res, next) {
-	console.log(req.body);
 
 	const order = new Order(req.body);
 
 	try {
 		await order.save();
 		res.status(201).send(order);
-		console.log('success');
 	} catch(e) {
 		console.log(e);
 		res.status(400).send(e);
