@@ -1,6 +1,6 @@
 // Module
+require('./db/mongoose');
 const express = require('express');
-const mongoose = require('./db/mongoose');
 const logger = require('./middlewares/simple-logger');
 const path = require('path');
 
