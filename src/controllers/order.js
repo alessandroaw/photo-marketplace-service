@@ -18,7 +18,7 @@ async function post(req, res, next) {
 		await order.save();
 		res.status(201).send(order);
 	} catch(e) {
-		console.log(e);
+		console.error(e);
 		res.status(400).send(e);
 	}
 }
@@ -29,7 +29,7 @@ async function patch(req, res, next) {
 		const order = await Order.findByIdAndUpdate(id, {$set: { paid: true }});
 		res.send(order);
 	} catch (e) {
-		console.log(e);
+		console.error(e);
 		res.status(400).send(e);	
 	}
 }

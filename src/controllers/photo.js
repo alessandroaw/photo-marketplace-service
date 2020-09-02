@@ -7,7 +7,7 @@ async function post(req, res, next) {
         await photo.save();
 		res.status(201).send(photo);
     } catch(e) {
-		console.log(e);
+		console.error(e);
         res.status(400).send(e);
     }
 }
